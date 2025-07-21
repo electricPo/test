@@ -1,0 +1,25 @@
+#include <string>
+#include <vector>
+
+using namespace std;
+
+vector<int> solution(vector<int> arr, vector<bool> flag) {
+    vector<int> answer;
+    
+    for(int i = 0; i<flag.size(); i++)
+    {
+        if(flag[i] == true){
+            //arr[i]을 2번 추가
+            for(int j = 0; j< (arr[i] *2); j++){
+                answer.push_back(arr[i]);    
+            }            
+        }else if(flag[i] == false){
+            //arr[i]개의 원소 제거
+            for(int k = 0; k<arr[i]; k++){
+                answer.pop_back();
+            }
+        }
+    }
+    
+    return answer;
+}

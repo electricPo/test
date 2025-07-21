@@ -1,0 +1,28 @@
+#include <string>
+#include <vector>
+#include <algorithm> // min, max
+
+using namespace std;
+
+int solution(vector<vector<int>> dots) {
+    // 초기화
+    int min_x = dots[0][0];
+    int max_x = dots[0][0];
+    int min_y = dots[0][1];
+    int max_y = dots[0][1];
+    
+    // x,y 최대최소 갱신
+    for (int i = 0; i < dots.size(); i++) {
+        min_x = min(min_x, dots[i][0]);
+        max_x = max(max_x, dots[i][0]);
+        min_y = min(min_y, dots[i][1]);
+        max_y = max(max_y, dots[i][1]);
+    }
+    
+    // 너비 * 높이
+    int width = max_x - min_x;
+    int height = max_y - min_y;
+    int answer = width * height;
+    
+    return answer;
+}
